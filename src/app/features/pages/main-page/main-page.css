@@ -1,0 +1,25 @@
+.main-page{
+    display: flex;
+    min-height: 100vh;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* padding: 16px; */
+    background: linear-gradient(135deg, #1B211A, #628141);
+    /* background: linear-gradient(135deg, #00b09b, #96c93d); */
+    /* background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); */
+    /* background: linear-gradient(135deg, #56ab2f, #a8e063); */
+}
+
+.itens-main-page{   
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.teste {
+    padding: 2px;
+}
+
+.teste svg {
+  width: 40px;
+  height: 40px;
+}

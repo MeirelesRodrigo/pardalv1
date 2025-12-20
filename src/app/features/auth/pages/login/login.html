@@ -1,50 +1,45 @@
-<main class="main-content">
-    <section class="section-content">
-        
-        <div class="title-content">
-            <h1>Oficina Pardal</h1>
+<main class="flex min-h-screen justify-center items-center p-4">
+    <section class="flex flex-col w-screen max-w-lg p-6 rounded-2xl shadow-lg hover:shadow-2xl transition">
+        <div class="text-center mb-4">
+            <h1 class="text-4xl text-green-900">Oficina Pardal</h1>
         </div>
 
-        <div class="img-content mb-3">
+        <div class="flex justify-center mb-3">
             <img src="./assets/logo1.png" />
         </div>
 
-        <div>
-            <form class="needs-validation" [formGroup]="loginForm" (ngSubmit)="submit()" novalidate
-                [class.was-validated]="submitted">
+        <form [formGroup]="loginForm" (ngSubmit)="submit()" novalidate [class.was-validated]="submitted">
+            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                <div>
+                    <label for="user" class="block mb-2.5 text-sm font-medium text-heading">Usuário</label>
+                    <input formControlName="user" type="text" id="user"
+                        class="bg-neutral-secondary-medium border border-green-700 rounded-2xl text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs"
+                        placeholder="pardal" required />
 
-                <div class="mb-3">
-                    <label class="form-label" id="user">Usuário</label>
-
-                    <input type="text" class="form-control" placeholder="Digite o usuário" formControlName="user"
-                        required />
-
-                    <div class="invalid-feedback">
-                        Usuário é obrigatório
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label class="form-label" id="password">
-                        Senha
-                    </label>
-                    <input type="password" class="form-control" formControlName="password"
-                        placeholder="Digite sua senha" id="password" required />
-                    <div class="invalid-feedback">
-                        Senha é obrigatória
-                    </div>
+                    @if (control('user')?.invalid && (control('user')?.touched || submitted)){
+                    <p class="text-red-600 font-bold text-sm ">Usuário é obrigatório</p>
+                    }
                 </div>
 
                 <div>
-                    <button type="submit" class="btn btn-outline-success">Acessar</button>
+                    <label for="password" class="block mb-2.5 text-sm font-medium text-heading">First name</label>
+                    <input formControlName="password" type="text" id="password"
+                        class="bg-neutral-secondary-medium border rounded-2xl border-green-700 text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs "
+                        placeholder="123" required />
+
+                    @if(control('password')?.invalid && (control('password')?.touched || submitted)){
+                    <p class="text-red-600 font-bold text-sm ">Usuário é obrigatório</p>
+                    }
                 </div>
+            </div>
 
-            </form>
-        </div>
-
-        <footer class="text-black text-center p-3 mt-5">
-            © 2025 Oficina Pardal
-        </footer>
+            <div>
+                <button
+                    class="w-full rounded-md border border-green-900 text-green-950 py-2 font-medium hover:bg-green-700 transition-colors duration-200 cursor-pointer hover:text-white"
+                    type="submit">Acessar</button>
+            </div>
+        </form>
 
     </section>
+
 </main>
