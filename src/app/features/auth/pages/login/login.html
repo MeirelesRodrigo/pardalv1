@@ -1,0 +1,50 @@
+<main class="main-content">
+    <section class="section-content">
+        
+        <div class="title-content">
+            <h1>Oficina Pardal</h1>
+        </div>
+
+        <div class="img-content mb-3">
+            <img src="./assets/logo1.png" />
+        </div>
+
+        <div>
+            <form class="needs-validation" [formGroup]="loginForm" (ngSubmit)="submit()" novalidate
+                [class.was-validated]="submitted">
+
+                <div class="mb-3">
+                    <label class="form-label" id="user">Usuário</label>
+
+                    <input type="text" class="form-control" placeholder="Digite o usuário" formControlName="user"
+                        required />
+
+                    <div class="invalid-feedback">
+                        Usuário é obrigatório
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" id="password">
+                        Senha
+                    </label>
+                    <input type="password" class="form-control" formControlName="password"
+                        placeholder="Digite sua senha" id="password" required />
+                    <div class="invalid-feedback">
+                        Senha é obrigatória
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-outline-success">Acessar</button>
+                </div>
+
+            </form>
+        </div>
+
+        <footer class="text-black text-center p-3 mt-5">
+            © 2025 Oficina Pardal
+        </footer>
+
+    </section>
+</main>
