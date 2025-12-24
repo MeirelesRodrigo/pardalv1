@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { SideBarComponents } from "../../components/side-bar-components/side-bar-components";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { StepperModule } from 'primeng/stepper';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-storage-page',
-  imports: [ReactiveFormsModule, SideBarComponents],
+  imports: [ReactiveFormsModule, SideBarComponents,StepperModule, ButtonModule],
   templateUrl: './storage-page.html',
   styleUrl: './storage-page.css',
 })
@@ -15,20 +17,23 @@ export class StoragePage {
 
   constructor(private fb: FormBuilder){
     this.storageForm = this.fb.group({
+      codigoProduto: ['',Validators.required],
       nomeProduto: ['',Validators.required],
-      qtdEstoqueproduto: ['', Validators.required],
-      valorProduto: ['', Validators.required],
+      marcaProduto: ['',Validators.required],
+      fornecedorProduto: ['',Validators.required],
+      undMedidaProduto: ['',Validators.required],
+      undEstoque: ['',Validators.required],
+      valorCustoProduto: ['', Validators.required],
+      valorVendaProduto: ['', Validators.required],
+      percentualLucroProduto: ['', Validators.required],
       corredorEstoque: ['', Validators.required],
       prateleiraEstoque: ['', Validators.required],
-      descricaoProduto: ['']
     })
   }
-
 
   control(name: string){
     return this.storageForm.get(name)
   }
-
 
   submit(){
     this.submitted = true
@@ -37,11 +42,11 @@ export class StoragePage {
       this.storageForm.markAllAsTouched()
       return
     }
+
+    console.log(this.storageForm.value)
   }
 
   formClean(){
     this.storageForm.reset()
   }
-
-
 }

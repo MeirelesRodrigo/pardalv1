@@ -15,72 +15,184 @@
         </header>
 
         <!-- Formulário -->
-        <form [formGroup]="storageForm" class="grid grid-cols-2 gap-x-6 gap-y-4 mb-6">
+        <form [formGroup]="storageForm">
+            <p-stepper [value]="1">
+                <p-step-item [value]="1">
+                    <p-step>Informações Gerais</p-step>
+                    <p-step-panel>
+                        <ng-template #content let-activateCallback="activateCallback">
+                            <div class="flex flex-col h-48">
+                                <div
+                                    class="bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">
+                                    <div class="flex flex-col mr-2">
+                                        <label for="codigoProduto" id="codigoProduto"
+                                            class="font-medium text-green-950">Código</label>
+                                        <input type="text" formControlName="codigoProduto" required
+                                            class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                                        @if(control('codigoProduto')?.invalid && (control('codigoProduto')?.touched ||
+                                        submitted )){
+                                        <p class="text-red-600 font-bold text-sm ">Código é obrigatório</p>
+                                        }
+                                    </div>
 
-            <div class="flex flex-col">
-                <label for="nomeProduto" id="nomeProduto" class="font-medium text-green-950">Nome</label>
-                <input type="text" formControlName="nomeProduto" required
-                    class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
-                @if(control('nomeProduto')?.invalid && (control('nomeProduto')?.touched || submitted )){
-                <p class="text-red-600 font-bold text-sm ">Nome do Produto é obrigatório</p>
-                }
-            </div>
+                                    <div class="flex flex-col mr-2">
+                                        <label for="nomeProduto" id="nomeProduto"
+                                            class="font-medium text-green-950">Nome</label>
+                                        <input type="text" formControlName="nomeProduto" required
+                                            class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                                        @if(control('nomeProduto')?.invalid && (control('nomeProduto')?.touched ||
+                                        submitted )){
+                                        <p class="text-red-600 font-bold text-sm ">Nome é obrigatório</p>
+                                        }
+                                    </div>
 
-            <div class="flex flex-col">
-                <label for="qtdEstoqueproduto" id="qtdEstoqueproduto" class="font-medium text-green-950">UND Estoque</label>
-                <input type="text" formControlName="qtdEstoqueproduto" required
-                    class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
-                @if(control('qtdEstoqueproduto')?.invalid && (control('qtdEstoqueproduto')?.touched || submitted)){
-                <p class="text-red-600 font-bold text-sm ">Unidade do Produto é obrigatório</p>
-                }
-            </div>
+                                    <div class="flex flex-col mr-2">
+                                        <label for="marcaProduto" id="marcaProduto"
+                                            class="font-medium text-green-950">Marca</label>
+                                        <input type="text" formControlName="marcaProduto" required
+                                            class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                                        @if(control('marcaProduto')?.invalid && (control('marcaProduto')?.touched ||
+                                        submitted )){
+                                        <p class="text-red-600 font-bold text-sm ">Marca é obrigatório</p>
+                                        }
+                                    </div>
+                                </div>
 
-            <div class="flex flex-col">
-                <label for="valorProduto" id="valorProduto" class="font-medium text-green-950">Valor</label>
-                <input type="text" formControlName="valorProduto" required
-                    class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
-                @if(control('valorProduto')?.invalid && (control('valorProduto')?.touched || submitted)){
-                <p class="text-red-600 font-bold text-sm ">Valor do Produto é obrigatório</p>
-                }
-            </div>
+                                <div
+                                    class="bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">
 
-            <div class="flex flex-col">
-                <label for="corredorEstoque" id="corredorEstoque" class="font-medium text-green-950">Corredor</label>
-                <input type="text" formControlName="corredorEstoque" required
-                    class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
-                    @if(control('corredorEstoque')?.invalid && (control('corredorEstoque')?.touched || submitted)){
-                <p class="text-red-600 font-bold text-sm ">Corredor do Produto é obrigatório</p>
-                }
-            </div>
-            <div class="flex flex-col">
-               <label for="prateleiraEstoque" id="prateleiraEstoque" class="font-medium text-green-950">Prateleira</label>
-                <input type="text" formControlName="prateleiraEstoque" required
-                    class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
-                    @if(control('prateleiraEstoque')?.invalid && (control('prateleiraEstoque')?.touched || submitted)){
-                <p class="text-red-600 font-bold text-sm ">Prateleira do Produto é obrigatório</p>
-                }
-            </div>
-            <div class="flex flex-col">
-                <label for="prateleiraEstoque" id="prateleiraEstoque"  class="font-medium text-green-950">Descrição</label>
-                <textarea type="" formControlName="descricaoProduto"
-                    class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"></textarea>
-            </div>
+                                    
+                                    <div class="flex flex-col mr-2">
+                                        <label for="fornecedorProduto" id="fornecedorProduto"
+                                            class="font-medium text-green-950">Fornecedor</label>
+                                        <input type="text" formControlName="fornecedorProduto" required
+                                            class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                                        @if(control('fornecedorProduto')?.invalid && (control('fornecedorProduto')?.touched ||
+                                        submitted )){
+                                        <p class="text-red-600 font-bold text-sm ">Fornecedor é obrigatório</p>
+                                        }
+                                    </div>
+
+                                    <div class="flex flex-col mr-2">
+                                        <label for="undMedidaProduto" id="undMedidaProduto"
+                                            class="font-medium text-green-950">Unidade de Medida</label>
+                                        <input type="text" formControlName="undMedidaProduto" required
+                                            class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                                        @if(control('undMedidaProduto')?.invalid && (control('undMedidaProduto')?.touched ||
+                                        submitted )){
+                                        <p class="text-red-600 font-bold text-sm ">Unidade é obrigatório</p>
+                                        }
+                                    </div>
+
+                                    <div class="flex flex-col mr-2">
+                                        <label for="undEstoque" id="undEstoque"
+                                            class="font-medium text-green-950">Valor de Estoque</label>
+                                        <input type="text" formControlName="undEstoque" required
+                                            class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                                        @if(control('undEstoque')?.invalid && (control('undEstoque')?.touched ||
+                                        submitted )){
+                                        <p class="text-red-600 font-bold text-sm ">Estoque é obrigatório</p>
+                                        }
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="py-6">
+                                <p-button label="Continuar" (onClick)="activateCallback(2)" />
+                            </div>
+                        </ng-template>
+                    </p-step-panel>
+                </p-step-item>
+
+                <p-step-item [value]="2">
+                    <p-step>Valor</p-step>
+                    <p-step-panel>
+                        <ng-template #content let-activateCallback="activateCallback">
+                            <div class="flex flex-col h-48">
+                                <div
+                                    class="bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">
+                                    <div class="flex flex-col mr-2">
+                                        <label for="valorCustoProduto" id="valorCustoProduto"
+                                            class="font-medium text-green-950">Preço de Custo</label>
+                                        <input type="text" formControlName="valorCustoProduto" required
+                                            class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                                        @if(control('valorCustoProduto')?.invalid && (control('valorCustoProduto')?.touched ||
+                                        submitted )){
+                                        <p class="text-red-600 font-bold text-sm ">Preço é obrigatório</p>
+                                        }
+                                    </div>
+
+                                    <div class="flex flex-col mr-2">
+                                        <label for="valorVendaProduto" id="valorVendaProduto"
+                                            class="font-medium text-green-950">Valor Venda</label>
+                                        <input type="text" formControlName="valorVendaProduto" required
+                                            class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                                        @if(control('valorVendaProduto')?.invalid && (control('valorVendaProduto')?.touched ||
+                                        submitted )){
+                                        <p class="text-red-600 font-bold text-sm ">Valor de Venda é obrigatório</p>
+                                        }
+                                    </div>
+
+                                    <div class="flex flex-col mr-2">
+                                        <label for="percentualLucroProduto" id="percentualLucroProduto"
+                                            class="font-medium text-green-950">Porcentagem de Lucro</label>
+                                        <input type="text" formControlName="percentualLucroProduto" required
+                                            class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                                        @if(control('percentualLucroProduto')?.invalid && (control('percentualLucroProduto')?.touched ||
+                                        submitted )){
+                                        <p class="text-red-600 font-bold text-sm ">Porcentagem é obrigatório</p>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex py-6 gap-2">
+                                <p-button label="Voltar" severity="secondary" (onClick)="activateCallback(1)" />
+                                <p-button label="Continuar" (onClick)="activateCallback(3)" />
+                            </div>
+                        </ng-template>
+                    </p-step-panel>
+                </p-step-item>
+
+                <p-step-item [value]="3">
+                    <p-step>Localização</p-step>
+                    <p-step-panel>
+                        <ng-template #content let-activateCallback="activateCallback">
+                            <div class="flex flex-col h-48">
+                                <div
+                                    class="bg-surface-50 dark:bg-surface-950 flex-auto flex justify-center items-center font-medium">
+
+
+                                    <div class="flex flex-col mr-2">
+                                        <label for="corredorEstoque" id="corredorEstoque"
+                                            class="font-medium text-green-950">Corredor</label>
+                                        <input type="text" formControlName="corredorEstoque" required
+                                            class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                                        @if(control('corredorEstoque')?.invalid && (control('corredorEstoque')?.touched ||
+                                        submitted )){
+                                        <p class="text-red-600 font-bold text-sm ">Corredor é obrigatório</p>
+                                        }
+                                    </div>
+
+                                    <div class="flex flex-col mr-2">
+                                        <label for="prateleiraEstoque" id="prateleiraEstoque"
+                                            class="font-medium text-green-950">Prateleira</label>
+                                        <input type="text" formControlName="prateleiraEstoque" required
+                                            class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                                        @if(control('prateleiraEstoque')?.invalid && (control('prateleiraEstoque')?.touched ||
+                                        submitted )){
+                                        <p class="text-red-600 font-bold text-sm ">Prateleira é obrigatório</p>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex py-6 gap-2">
+                                <p-button label="Voltar" severity="secondary" (onClick)="activateCallback(2)" />
+                                <p-button class="" label="Finalizar Cadastro" [disabled]="storageForm.invalid" (onClick)="submit() "/>
+                            </div>
+                        </ng-template>
+                    </p-step-panel>
+                </p-step-item>
+            </p-stepper>
         </form>
-
-
-        <div class="flex justify-end gap-4 mt-auto">
-            <button (click)="formClean()"
-                class="w-2xs rounded-md border border-red-900 text-red-950 py-2 font-medium hover:bg-red-700 transition-colors duration-200 cursor-pointer hover:text-white">Limpar
-            </button>
-            <button [disabled]="storageForm.invalid"
-                class="w-2xs rounded-md border border-green-900 text-green-950 py-2 font-medium hover:bg-green-700 transition-colors duration-200 cursor-pointer disabled:bg-gray-200 disabled:text-gray-400 disabled:border-gray-300 disabled:hover:bg-gray-200 disabled:hover:text-gray-400 hover:text-white disabled:cursor-not-allowed">
-                Cadastrar Produto
-            </button>
-        </div>
     </section>
-
-
 </main>
-
-
-       
