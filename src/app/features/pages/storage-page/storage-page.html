@@ -1,1 +1,86 @@
-<h1>ROdrigo Meireles</h1>
+<main class="flex min-h-screen">
+    <!-- Sidebar -->
+    <div class="w-1/6 border-r-2 mt-2 mb-2 border-emerald-950">
+        <app-side-bar-components></app-side-bar-components>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <section class="flex-1 flex flex-col p-6 ">
+
+        <!-- Título -->
+        <header class="mb-6">
+            <p class="text-2xl font-bold tracking-wide text-green-950 uppercase border-b-2 border-green-700 pb-2">
+                Cadastrar Produtos
+            </p>
+        </header>
+
+        <!-- Formulário -->
+        <form [formGroup]="storageForm" class="grid grid-cols-2 gap-x-6 gap-y-4 mb-6">
+
+            <div class="flex flex-col">
+                <label for="nomeProduto" id="nomeProduto" class="font-medium text-green-950">Nome</label>
+                <input type="text" formControlName="nomeProduto" required
+                    class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                @if(control('nomeProduto')?.invalid && (control('nomeProduto')?.touched || submitted )){
+                <p class="text-red-600 font-bold text-sm ">Nome do Produto é obrigatório</p>
+                }
+            </div>
+
+            <div class="flex flex-col">
+                <label for="qtdEstoqueproduto" id="qtdEstoqueproduto" class="font-medium text-green-950">UND Estoque</label>
+                <input type="text" formControlName="qtdEstoqueproduto" required
+                    class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                @if(control('qtdEstoqueproduto')?.invalid && (control('qtdEstoqueproduto')?.touched || submitted)){
+                <p class="text-red-600 font-bold text-sm ">Unidade do Produto é obrigatório</p>
+                }
+            </div>
+
+            <div class="flex flex-col">
+                <label for="valorProduto" id="valorProduto" class="font-medium text-green-950">Valor</label>
+                <input type="text" formControlName="valorProduto" required
+                    class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                @if(control('valorProduto')?.invalid && (control('valorProduto')?.touched || submitted)){
+                <p class="text-red-600 font-bold text-sm ">Valor do Produto é obrigatório</p>
+                }
+            </div>
+
+            <div class="flex flex-col">
+                <label for="corredorEstoque" id="corredorEstoque" class="font-medium text-green-950">Corredor</label>
+                <input type="text" formControlName="corredorEstoque" required
+                    class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                    @if(control('corredorEstoque')?.invalid && (control('corredorEstoque')?.touched || submitted)){
+                <p class="text-red-600 font-bold text-sm ">Corredor do Produto é obrigatório</p>
+                }
+            </div>
+            <div class="flex flex-col">
+               <label for="prateleiraEstoque" id="prateleiraEstoque" class="font-medium text-green-950">Prateleira</label>
+                <input type="text" formControlName="prateleiraEstoque" required
+                    class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700" />
+                    @if(control('prateleiraEstoque')?.invalid && (control('prateleiraEstoque')?.touched || submitted)){
+                <p class="text-red-600 font-bold text-sm ">Prateleira do Produto é obrigatório</p>
+                }
+            </div>
+            <div class="flex flex-col">
+                <label for="prateleiraEstoque" id="prateleiraEstoque"  class="font-medium text-green-950">Descrição</label>
+                <textarea type="" formControlName="descricaoProduto"
+                    class="rounded-md border border-green-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-700"></textarea>
+            </div>
+        </form>
+
+
+        <div class="flex justify-end gap-4 mt-auto">
+            <button (click)="formClean()"
+                class="w-2xs rounded-md border border-red-900 text-red-950 py-2 font-medium hover:bg-red-700 transition-colors duration-200 cursor-pointer hover:text-white">Limpar
+            </button>
+            <button [disabled]="storageForm.invalid"
+                class="w-2xs rounded-md border border-green-900 text-green-950 py-2 font-medium hover:bg-green-700 transition-colors duration-200 cursor-pointer disabled:bg-gray-200 disabled:text-gray-400 disabled:border-gray-300 disabled:hover:bg-gray-200 disabled:hover:text-gray-400 hover:text-white disabled:cursor-not-allowed">
+                Cadastrar Produto
+            </button>
+        </div>
+    </section>
+
+
+</main>
+
+
+       
