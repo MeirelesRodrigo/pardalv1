@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { StoragePage } from './storage-page';
+
+describe('StoragePage', () => {
+  let component: StoragePage;
+  let fixture: ComponentFixture<StoragePage>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [StoragePage]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(StoragePage);
+    component = fixture.componentInstance;
+    await fixture.whenStable();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
