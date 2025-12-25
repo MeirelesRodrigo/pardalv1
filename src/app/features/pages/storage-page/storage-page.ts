@@ -3,6 +3,8 @@ import { SideBarComponents } from "../../components/side-bar-components/side-bar
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { StepperModule } from 'primeng/stepper';
 import { ButtonModule } from 'primeng/button';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+
 
 @Component({
   selector: 'app-storage-page',
@@ -13,7 +15,6 @@ import { ButtonModule } from 'primeng/button';
 export class StoragePage {
   storageForm: FormGroup
   submitted = false
-
 
   constructor(private fb: FormBuilder){
     this.storageForm = this.fb.group({
@@ -42,7 +43,6 @@ export class StoragePage {
       this.storageForm.markAllAsTouched()
       return
     }
-
     console.log(this.storageForm.value)
   }
 
